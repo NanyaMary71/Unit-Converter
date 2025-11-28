@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Weight Converter</h2>
+
+<form method="POST" action="/weight">
+    <input type="number" name="value" step="any" required placeholder="Enter value">
+
+    <select name="from_unit">
+        <option value="mg">Milligram</option>
+        <option value="g">Gram</option>
+        <option value="kg">Kilogram</option>
+        <option value="oz">Ounce</option>
+        <option value="lb">Pound</option>
+    </select>
+
+    <select name="to_unit">
+        <option value="mg">Milligram</option>
+        <option value="g">Gram</option>
+        <option value="kg">Kilogram</option>
+        <option value="oz">Ounce</option>
+        <option value="lb">Pound</option>
+    </select>
+
+    <button type="submit">Convert</button>
+</form>
+
+{% if result != None %}
+<p class="result">Converted Value: {{ result }}</p>
+{% endif %}
+
+{% endblock %}
